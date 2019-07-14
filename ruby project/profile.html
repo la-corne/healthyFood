@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <!--phone-->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="shortcut icon"  href="images/logoo.jpg">
+ <title>Healthy-Food </title>
+ <!-- css-->
+ <link rel="stylesheet" type="text/css" href="css/profile.css">
+
+ <!-- bootstrap -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+
+
+ <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+ <!-- JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="js/profile.js"></script>
+
+</head>
+<body>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+  <div class="container-fluid">
+  <!--bar-->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      
+      <a href="home.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="service.html">Services</a>
+      <a href="saved.html">Saved</a>
+      <a href="contact us.html">Contact us</a>
+      <br>
+      <div class="col-sm-12">
+        <!---->
+        <form class="navbar-form navbar-left">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Specialist name..">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <!---->
+      </div>
+    </div>
+    <div id="main">
+    </div>
+    <!---->
+    <div class="row">
+      <nav class="navbar navbar-inverse navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="welcome.html">Healthy-Food</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+
+            <li><a id="icon-bar" href="#"><i class="fa fa-envelope"></i></a></li>
+            <li><a  id="icon-bar" href="#"><i class="fa fa-globe"></i></a></li>
+
+            <!---->
+            <div class="icon-bar">
+            </div>
+
+            <!---->
+          </ul>
+          <form class="navbar-form navbar-left">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search..">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+            <li><a href="welcome.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+          </ul>
+
+        </div>
+
+      </nav>
+    </div>
+    <!---->
+
+
+    <div class="container">
+     <div class="row">
+      <div class="col-md-12">
+        <header id="header">
+          <div class="slider">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <img src="images/hero_swim_watch.jpg">
+                </div>
+                <div class="item ">
+                  <img src="images/f3c0d92cba356e4bfed6a5f7e643cc46.jpg">
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="fa fa-angle-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="fa fa-angle-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <!--slider-->
+          <div class="b">
+            <nav class="navbar navbar-default">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                  <img class="img-responsive" src="http://st2.depositphotos.com/2703645/7304/v/950/depositphotos_73040253-stock-illustration-male-avatar-icon.jpg">
+
+                </div>
+                <span class="site-name"><b>User Name</b></span>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="mainNav" >
+                <ul class="nav main-menu navbar-nav">
+                  <input id="upload" type="file"/>
+                  <li><a href="" id="upload_link">Uptade Profile picture</a></li>
+                  <li><a href="service.html">Edit</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </nav>
+          </header>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="jumbotron">
+                <h2>Job</h2>
+                <h2>Age</h2>
+                <h2>Weight</h2>
+                <h2>Height</h2>
+                <h2>Disease</h2>
+                <h2>Gender</h2>
+              </div>
+            </div>
+              <!---->
+              <div class="col-sm-9"> 
+                <div class="jumbotron">
+
+                  <div class="post">
+                   <div class="chip">
+                    <img src="http://book.jirengu.com/jirengu-inc/jrg-renwu11/homework/LiuZheXin/task8/img/man.png" alt="Person" width="96" height="96">
+                    name
+                  </div>
+                  <br>
+                  <p>write some thing here...........</p>
+                  <div class="move">
+                    <button class="btn btn-default">Like <span class="badge">5</span></button>
+                    <button class="btn btn-default">Comment <span class="badge">2</span></button>
+                    <button class="btn btn-default">Save <span class="badge">1</span></button>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      document.body.style.backgroundColor = "white";
+    }
+  </script>
+</body>
+</html>

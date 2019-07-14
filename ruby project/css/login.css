@@ -1,0 +1,22 @@
+body {
+  background-image:url("../images/bachground.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+.container label{
+ color: green;
+ font-weight: bold;
+}
+.container a{
+  color:green;
+}
+.container h1{
+  font-family: 'Georgia', 'Times', serif;
+  color: green;
+  font-weight: bold;
+}
+.container .btn{
+  background-color: #E8DFE0;
+  color: green;
+  font-weight: bold;
+}

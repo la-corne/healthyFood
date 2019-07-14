@@ -1,0 +1,256 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,700);
+
+body{
+  background-image:url("../images/bachground.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    }
+    
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Open Sans Condensed', sans-serif, sans-serif;
+}
+.food{
+        border:0px solid #ddd;
+
+}
+.label{
+        background:#e9eaed;
+            color: gray;
+
+}
+
+.container{
+    border:0px solid #ddd;
+ background-color:rgba(255,248,241,0.30);
+    margin-bottom:20px;
+    }
+
+.wrapper{
+    }
+
+#header{
+    border:0px solid #ddd;
+    margin-bottom:20px;
+    }
+    
+
+
+    
+.b .navbar{
+    border-radius:0;
+    margin-bottom:0;
+    border:none;
+        font-family: 'Open Sans Condensed', sans-serif, sans-serif;
+
+    }
+    
+.b .navbar > li >a{
+    
+    }
+    
+
+    
+.b .navbar-header{
+    }
+    
+.b .navbar-brand{
+width:160px;
+height:160px;
+float:left;
+padding:0;
+margin-top:-130px;
+overflow:hidden;
+border:3px solid #eee;
+margin-left:15px;
+background:#333;
+text-align:center;
+line-height:160px;
+color:#fff !important;
+font-size:2em;
+    -webkit-transition:  all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition:  all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out ;
+
+    }
+    
+    
+.site-name{
+    color:#fff;
+    font-size:2.4em;
+    float:left;
+    margin-top:-65px !important;
+    margin-left:15px;
+        font-family: 'Open Sans Condensed', sans-serif, sans-serif;
+
+    }   
+.site-description{
+    color:#fff;
+    font-size:1.3em;
+    float:left;
+    margin-top:-30px !important;
+    margin-left:15px;
+    }
+    
+.main-menu{
+    position:absolute;
+    left:190px;
+    }
+    
+.slider, .carousel{
+    max-height:360px;
+    overflow:hidden;
+    }
+    
+.carousel-control .fa-angle-left,
+.carousel-control .fa-angle-right {
+position: absolute;
+top: 50%;
+font-size:2em;
+z-index: 5;
+display: inline-block;
+}
+
+.carousel-control{
+    background-color:transparent;
+    background-image:none !important;
+    }
+    
+.carousel-control:hover,
+.carousel-control:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color:transparent !important;
+  background-image:none !important;
+  outline: 0;
+}
+
+
+    
+
+    
+    
+@media (max-width: 768px) {
+.navbar-brand{
+    max-width: 100px;
+    max-height:100px;
+    float:left;
+    margin-top:-65px;
+    margin-left:15px;
+    -webkit-transition:  all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition:  all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out ;
+  }
+  
+
+  
+
+
+.navbar{
+    border-radius:0;
+    margin-bottom:0;
+    border:none;
+    }
+    
+.main-menu{
+    left:0;
+    position:relative;
+    }
+
+
+}
+
+@media (max-width: 490px) {
+    .site-name{
+    color:#fff;
+    font-size:1.5em;
+    float:left;
+    line-height:20px;
+    margin-top:-100px !important;
+    margin-left:125px;
+    }   
+.site-description{
+    color:#fff;
+    font-size:1.3em;
+    float:left;
+    margin-top:-80px !important;
+    margin-left:125px;
+    }
+    }
+#upload{
+    display:none
+}
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+/**/
+.post {
+    border:0px solid #ddd;
+    margin-bottom:20px;
+    }
+.move{
+  text-align: right;
+}
+{
+    box-sizing: border-box;
+}
+
+/**/
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
