@@ -16,17 +16,17 @@
       </li>
 
     </ul>
-    <form class="form-inline my-2 my-lg-0 ">
-      <div class="input-group">
+    <form class="form-inline  mr-auto">
+      <div class="input-group ">
         <input class="form-control" type="search" placeholder="Search.." aria-label="Search">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i>
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search "></i>
           </button>
         </div>
       </div>
     </form>
+    <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
     <ul class="nav navbar-nav navbar-right">
-      <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
       <li>
         <%= link_to "Logout", root_path, class: "nav-link fa fa-sign-out" %>
       </li>
@@ -43,19 +43,6 @@
   <%= link_to "Saved", saved_path %>
   <%= link_to "Contact us", contact_us_path %>
 
-  <br>
-  <div class="col-sm-12">
-    <form class="navbar-form navbar-left">
-
-      <div class="input-group">
-        <input class="form-control" type="search" placeholder="Specialist name.." aria-label="Specialist name">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
 </div>
 
 
