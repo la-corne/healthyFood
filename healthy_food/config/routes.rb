@@ -3,4 +3,9 @@ Rails.application.routes.draw do
   root 'welcome#welcome'
   get 'login', to: 'welcome#login'
   get 'signup', to: 'welcome#signup'
+  get 'contact_us', to: 'welcome#contact_us'
+  get 'home', to: 'welcome#home'
+  get 'profile', to: 'welcome#profile'
+  get 'saved', to: 'welcome#saved'
+  get 'service', to: 'welcome#service'
 end

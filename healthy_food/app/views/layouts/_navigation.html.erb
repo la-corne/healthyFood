@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <%= link_to "Healthy-Food", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", home_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Profile", profile_path, class: "nav-link" %>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0 ">
+      <div class="input-group">
+        <input class="form-control" type="search" placeholder="Search.." aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+      <li>
+        <%= link_to "Logout", root_path, class: "nav-link fa fa-sign-out" %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--side bar-->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <%= link_to "Home", home_path %>
+  <%= link_to "Profile", profile_path %>
+  <%= link_to "Services", service_path %>
+  <%= link_to "Saved", saved_path %>
+  <%= link_to "Contact us", contact_us_path %>
+
+  <br>
+  <div class="col-sm-12">
+    <form class="navbar-form navbar-left">
+
+      <div class="input-group">
+        <input class="form-control" type="search" placeholder="Specialist name.." aria-label="Specialist name">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "white";
+    }
+</script>
