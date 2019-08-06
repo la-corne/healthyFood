@@ -1,0 +1,353 @@
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,700);
+
+  h1, h2, h3, h4, h5, h6{
+    font-family: 'Open Sans Condensed', sans-serif, sans-serif;
+  }
+  .food{
+    border:0px solid #ddd;
+
+  }
+  .label{
+    background:#e9eaed;
+    color: gray;
+
+  }
+
+  .container{
+    border:0px solid #ddd;
+    background-color:rgba(255,248,241,0.30);
+    margin-bottom:20px;
+  }
+
+  .wrapper{
+  }
+
+  #header{
+    border:0px solid #ddd;
+    margin-bottom:20px;
+  }
+
+
+
+
+  .b .navbar{
+    border-radius:0;
+    margin-bottom:0;
+    border:none;
+    font-family: 'Open Sans Condensed', sans-serif, sans-serif;
+
+  }
+
+  .b .navbar > li >a{
+
+  }
+
+
+
+  .b .navbar-header{
+  }
+
+  .b .navbar-brand{
+    width:160px;
+    height:160px;
+    float:left;
+    padding:0;
+    margin-top:-130px;
+    overflow:hidden;
+    border:3px solid #eee;
+    margin-left:15px;
+    background:#333;
+    text-align:center;
+    line-height:160px;
+    color:#fff !important;
+    font-size:2em;
+    -webkit-transition:  all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition:  all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out ;
+
+  }
+
+
+  .site-name{
+    color:#fff;
+    font-size:2.4em;
+    float:left;
+    margin-top:-65px !important;
+    margin-left:15px;
+    font-family: 'Open Sans Condensed', sans-serif, sans-serif;
+
+  }
+  .site-description{
+    color:#fff;
+    font-size:1.3em;
+    float:left;
+    margin-top:-30px !important;
+    margin-left:15px;
+  }
+
+  .main-menu{
+    position:absolute;
+    left:190px;
+  }
+
+  .slider, .carousel{
+    max-height:360px;
+    overflow:hidden;
+  }
+
+  .carousel-control .fa-angle-left,
+  .carousel-control .fa-angle-right {
+    position: absolute;
+    top: 50%;
+    font-size:2em;
+    z-index: 5;
+    display: inline-block;
+  }
+
+  .carousel-control{
+    background-color:transparent;
+    background-image:none !important;
+  }
+
+  .carousel-control:hover,
+  .carousel-control:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color:transparent !important;
+    background-image:none !important;
+    outline: 0;
+  }
+
+
+
+
+
+
+  @media (max-width: 768px) {
+    .navbar-brand{
+      max-width: 100px;
+      max-height:100px;
+      float:left;
+      margin-top:-65px;
+      margin-left:15px;
+      -webkit-transition:  all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition:  all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out ;
+    }
+
+
+
+
+
+    .navbar{
+      border-radius:0;
+      margin-bottom:0;
+      border:none;
+    }
+
+    .main-menu{
+      left:0;
+      position:relative;
+    }
+
+
+  }
+
+  @media (max-width: 490px) {
+    .site-name{
+      color:#fff;
+      font-size:1.5em;
+      float:left;
+      line-height:20px;
+      margin-top:-100px !important;
+      margin-left:125px;
+    }
+    .site-description{
+      color:#fff;
+      font-size:1.3em;
+      float:left;
+      margin-top:-80px !important;
+      margin-left:125px;
+    }
+  }
+  #upload{
+    display:none
+  }
+  .chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+  }
+
+  .chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+  /**/
+  .post {
+    border:0px solid #ddd;
+    margin-bottom:20px;
+  }
+  .move{
+    text-align: right;
+  }
+  {
+    box-sizing: border-box;
+  }
+
+  /**/
+  /* The side navigation menu */
+  .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+  }
+
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+  }
+
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+
+
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div class="container-fluid background">
+
+
+
+<div class="container ">
+  <div class="row">
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+      </ul>
+
+      <!-- The slideshow -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%=image_tag("hero_swim_watch.jpg")%>
+        </div>
+        <div class="carousel-item">
+          <%=image_tag("f3c0d92cba356e4bfed6a5f7e643cc46.jpg")%>
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+
+
+      <header id="header">
+        <div class="b">
+          <nav class="navbar navbar-default">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <div class="navbar-brand">
+                <%=image_tag("user.jpeg",class:"img-responsive") %>
+              </div>
+              <span class="site-name"><b>User Name</b></span>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="jumbotron">
+            <h2>Job</h2>
+            <h2>Age</h2>
+            <h2>Weight</h2>
+            <h2>Height</h2>
+            <h2>Disease</h2>
+            <h2>Gender</h2>
+          </div>
+        </div>
+        <!---->
+        <div class="col-sm-9">
+          <div class="jumbotron">
+
+            <div class="post">
+              <div class="chip">
+                <%= image_tag("http://book.jirengu.com/jirengu-inc/jrg-renwu11/homework/LiuZheXin/task8/img/man.png",:alt =>"Person", width:"96", height:"96")%>
+                name
+              </div>
+              <br>
+              <p>write some thing here...........</p>
+              <div class="move">
+                <button class="btn btn-success">Like <span class="badge LCS">5</span></button>
+                <button class="btn btn-success">Comment <span class="badge LCS">2</span></button>
+                <button class="btn btn-success">Save <span class="badge LCS">1</span></button>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
