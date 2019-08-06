@@ -6,8 +6,8 @@
   <meta charset="utf-8">
   <!--phone-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href= "../../assets/images/logoo.jpg">
-  <script type="text/javascript" src="../javascripts/navigation.js"></script>
+
+  <link rel="shortcut icon" href= "logoo.jpg">
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<%= render 'layouts/navigation' %>
+<%= render 'layouts/navigation' if @navigation_bar%>
 <%= yield%>
 <%=render 'layouts/footer' %>
 </body>
