@@ -1,27 +1,54 @@
-
 <div class="container-fluid background">
 
-<div class="row ">
-  <div class="container">
-    <br><br><br><br>
-    <div class="row">
-      <div class="col-sm-4">
-      </div>
-      <div class="col-sm-4">
-        <div class="jumbotron">
-          <input class="form-control" type="text" placeholder="Email or phone number">
-          <br>
-          <input class="form-control" type="password" placeholder="Password">
-          <br>
-          <a href="#">Forgotten Password? <span class="badge"></span></a>
-          <br>
-          <div class="checkbox">
-            <label><input type="checkbox"> Remember me</label>
+  <div class="row ">
+    <div class="container">
+      <br><br><br><br>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+          <div class="jumbotron">
+            <input class="form-control" type="text" placeholder="Email or phone number">
+            <br>
+            <input class="form-control" type="password" placeholder="Password">
+            <br>
+
+
+            <div class="move">
+              <!---->
+              <a href="#" class="img-circle person" data-toggle="modal" data-target="#myModal2">Forgotten Password?</a>
+              <div id="myModal2" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  <!--content class="btn btn-info btn-lg"-->
+                  <div class="modal-content">
+                    <div>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="header">
+                        <h2>Find Your Account</h2>
+                      </div>
+                      <hr>
+                      <p>Please enter your email address or phone number to send a code for you.</p>
+                      <input class="form-control" type="text" placeholder="email address or phone number">
+                      <hr>
+                        <button type="button" class="btn btn-success float-right">Send</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <br>
+            <div class="checkbox">
+              <label><input type="checkbox"> Remember me</label>
+            </div>
+            <button type="button" class="btn btn-success"><%= link_to 'Login', home_path %></button>
           </div>
-          <button type="button" class="btn btn-success"><%= link_to 'Login', home_path %></button>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

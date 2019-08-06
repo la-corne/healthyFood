@@ -7,7 +7,8 @@
   <!--phone-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="shortcut icon" href= "logoo.jpg">
+  <!--shortcut icon-->
+  <%= favicon_link_tag 'logo.png' %>
 
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -17,8 +18,12 @@
 </head>
 
 <body>
-<%= render 'layouts/navigation' if @navigation_bar%>
-<%= yield%>
-<%=render 'layouts/footer' %>
+<header>
+  <%= render 'layouts/navigation' if @navigation_bar %>
+</header>
+<%= yield %>
+<footer>
+  <%= render 'layouts/footer' %>
+</footer>
 </body>
 </html>
