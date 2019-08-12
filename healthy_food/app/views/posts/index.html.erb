@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Description</th>
+    <th>No of likes</th>
+    <th>No of saved</th>
+    <th>No of comments</th>
+    <th>User</th>
+    <th>Comment</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.description %></td>
+      <td><%= post.no_of_likes %></td>
+      <td><%= post.no_of_saved %></td>
+      <td><%= post.no_of_comments %></td>
+      <td><%= post.user %></td>
+      <td><%= post.comment %></td>
+      <td><%= link_to 'Show', post %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+    <tr>
+
+      <!--to show information about the created user and when it's created and when it's last updated-->
+      <div class="post-meta-details">
+        <small>Created by: <%= post.user.username if post.user %>,
+
+          <%= time_ago_in_words(post.created_at) %> ago,
+
+          last updated: <%= time_ago_in_words(post.updated_at) %> ago</small>
+      </div>
+
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

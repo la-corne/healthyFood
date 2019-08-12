@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Comment</th>
+    <th>User</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.comment %></td>
+      <td><%= comment.user %></td>
+      <td><%= link_to 'Show', comment %></td>
+      <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+      <td><%= link_to 'Destroy', comment, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+    <tr>
+
+      <!--to show information about the created user and when it's created and when it's last updated-->
+      <div class="comment-meta-details">
+        <small>Created by: <%= comment.user.username if comment.user %>,
+
+          <%= time_ago_in_words(comment.created_at) %> ago,
+
+          last updated: <%= time_ago_in_words(comment.updated_at) %> ago</small>
+      </div>
+
+    </tr>
+
+
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment', new_comment_path %>
