@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_222718) do
+ActiveRecord::Schema.define(version: 2019_08_22_194043) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 2019_08_11_222718) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "diseases", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "description"
     t.integer "no_of_likes"
@@ -64,21 +70,26 @@ ActiveRecord::Schema.define(version: 2019_08_11_222718) do
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
+  create_table "user_diseases", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "disease_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "mobile_number"
     t.string "username"
-    t.string "password"
     t.string "email"
-    t.string "brithdate"
-    t.binary "is_specialist"
-    t.float "weight"
-    t.float "height"
-    t.text "diseases"
+    t.boolean "is_specialist", default: false
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.boolean "admin", default: false
+    t.decimal "weight"
+    t.decimal "height"
+    t.date "birthdate"
   end
 
 end

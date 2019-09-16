@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /recipes
   # GET /recipes.json
@@ -25,7 +27,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-
+    @recipe.user = current_user
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
@@ -70,6 +72,16 @@ class RecipesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :desiases, :image)
+    params.require(:recipe).permit(:name, :description, :desiases,:user_id, :image)
   end
+
+  def require_same_user
+    # if the current user isn't the owner of this recipe nor an admin..
+    # it can't edit or delete it
+    if current_user != @recipe.user and !current_user.admin?
+      flash[:danger] = 'You can only edit or delete your own articles'
+      redirect_to root_path
+    end
+  end
+  
 end

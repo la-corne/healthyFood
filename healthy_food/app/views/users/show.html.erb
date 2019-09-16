@@ -1,69 +1,316 @@
-<p id="notice"><%= notice %></p>
+<!--user profile page-->
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,700);
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans Condensed', sans-serif, sans-serif;
+  }
 
-<p>
-  <strong>Mobile number:</strong>
-  <%= @user.mobile_number %>
-</p>
+  .food {
+    border: 0px solid #ddd;
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+  }
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+  .label {
+    background: #e9eaed;
+    color: gray;
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  }
 
-<p>
-  <strong>Brithdate:</strong>
-  <%= @user.brithdate %>
-</p>
+  .container {
+    border: 0px solid #ddd;
+    background-color: rgba(255, 248, 241, 0.30);
+    margin-bottom: 20px;
+  }
 
-<p>
-  <strong>Is specialist:</strong>
-  <%= @user.is_specialist %>
-</p>
+  .wrapper {
+  }
 
-<p>
-  <strong>Weight:</strong>
-  <%= @user.weight %>
-</p>
+  #header {
+    border: 0px solid #ddd;
+    margin-bottom: 20px;
+  }
 
-<p>
-  <strong>Height:</strong>
-  <%= @user.height %>
-</p>
 
-<p>
-  <strong>Diseases:</strong>
-  <%= @user.diseases %>
-</p>
+  .b .navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+    border: none;
+    font-family: 'Open Sans Condensed', sans-serif, sans-serif;
 
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
-</p>
+  }
 
-<p>
-  <strong>Recipe:</strong>
-  <%= @user.recipe %>
-</p>
+  .b .navbar > li > a {
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  }
+
+
+  .b .navbar-header {
+  }
+
+  .b .navbar-brand {
+    width: 160px;
+    height: 160px;
+    float: left;
+    padding: 0;
+    margin-top: -130px;
+    overflow: hidden;
+    border: 3px solid #eee;
+    margin-left: 15px;
+    background: #333;
+    text-align: center;
+    line-height: 160px;
+    color: #fff !important;
+    font-size: 2em;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+  }
+
+
+  .site-name {
+    color: #fff;
+    font-size: 2.4em;
+    float: left;
+    margin-top: -65px !important;
+    margin-left: 15px;
+    font-family: 'Open Sans Condensed', sans-serif, sans-serif;
+
+  }
+
+  .site-description {
+    color: #fff;
+    font-size: 1.3em;
+    float: left;
+    margin-top: -30px !important;
+    margin-left: 15px;
+  }
+
+  .main-menu {
+    position: absolute;
+    left: 190px;
+  }
+
+  .slider, .carousel {
+    max-height: 360px;
+    overflow: hidden;
+  }
+
+  .carousel-control .fa-angle-left,
+  .carousel-control .fa-angle-right {
+    position: absolute;
+    top: 50%;
+    font-size: 2em;
+    z-index: 5;
+    display: inline-block;
+  }
+
+  .carousel-control {
+    background-color: transparent;
+    background-image: none !important;
+  }
+
+  .carousel-control:hover,
+  .carousel-control:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent !important;
+    background-image: none !important;
+    outline: 0;
+  }
+
+
+  @media (max-width: 768px) {
+    .navbar-brand {
+      max-width: 100px;
+      max-height: 100px;
+      float: left;
+      margin-top: -65px;
+      margin-left: 15px;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+
+
+    .navbar {
+      border-radius: 0;
+      margin-bottom: 0;
+      border: none;
+    }
+
+    .main-menu {
+      left: 0;
+      position: relative;
+    }
+
+
+  }
+
+  @media (max-width: 490px) {
+    .site-name {
+      color: #fff;
+      font-size: 1.5em;
+      float: left;
+      line-height: 20px;
+      margin-top: -100px !important;
+      margin-left: 125px;
+    }
+
+    .site-description {
+      color: #fff;
+      font-size: 1.3em;
+      float: left;
+      margin-top: -80px !important;
+      margin-left: 125px;
+    }
+  }
+
+  #upload {
+    display: none
+  }
+
+  .chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+  }
+
+  .chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  /**/
+  .post {
+    border: 0px solid #ddd;
+    margin-bottom: 20px;
+  }
+
+  .move {
+    text-align: right;
+  }
+
+  {
+    box-sizing: border-box
+  ;
+  }
+
+  /**/
+
+
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<body class="background">
+
+<div class="container-fluid ">
+
+
+  <div class="container ">
+    <!--cover slide-->
+    <div class="row">
+
+      <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag("hero_swim_watch.jpg") %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("f3c0d92cba356e4bfed6a5f7e643cc46.jpg") %>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+    <!--the end of the cover slide-->
+
+
+    <div class="row">
+      <div class="col-md-12">
+
+
+        <!-- profile picture and the user name -->
+        <header id="header">
+          <div class="b">
+            <nav class="navbar navbar-default">
+              <div class="navbar-header">
+                <div class="navbar-brand">
+
+                  <% if @user.profile_photo.attached? %>
+                    <%= image_tag(@user.profile_photo, class: "img-responsive", width: "160", height: "160") %>
+                  <% else %>
+                    <%= image_tag("img_avatar.png", class: "img-responsive", width: "160", height: "160") %>
+                  <% end %>
+
+                </div>
+                <span class="site-name"><b><%= @user.username %><%= "..Admin" if current_user.admin? %>
+                 </b></span>
+              </div>
+            </nav>
+          </div>
+        </header>
+        <!--end of profile pic and user name-->
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="jumbotron">
+              <h3> <%= "Specialist" if current_user.is_specialist? %></h3>
+              <hr>
+              <% if @user.diseases.any? %>
+                <h3>Diseases: <%= render @user.diseases %></h3>
+              <% end %>
+              <hr>
+              <h3>Weight: <%= @user.weight %> kg</h3>
+              <hr>
+              <h3>Height: <%= @user.height %> cm</h3>
+              <hr>
+              <h3> Gender: <%= @user.gender %></h3>
+            </div>
+          </div>
+
+          <!--user posts and recipes-->
+          <div class="col-sm-9">
+            <!--user posts-->
+            <%= render 'posts/post', obj: @user.posts %>
+            <!--user recipes-->
+            <%= render 'recipes/recipe', obj: @user.recipes %>
+          </div>
+          <!--end of user posts and recipes-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

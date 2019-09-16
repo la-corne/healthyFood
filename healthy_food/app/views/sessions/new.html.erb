@@ -1,0 +1,85 @@
+<body class="background">
+<div class="container-fluid ">
+  <div class="row ">
+    <div class="container">
+      <br><br><br><br>
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+          <div class="jumbotron">
+
+            <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-2">
+                </div>
+                <div class="col-sm-8">
+                  <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-2">
+                </div>
+                <div class="col-sm-8">
+                  <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "Enter password" %>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <div class="control-label col-sm-2">
+                </div>
+                <div class="col-sm-9">
+                  <div class="move">
+                    <!---->
+                    <a href="#" class="img-circle person" data-toggle="modal" data-target="#myModal2">Forgotten
+                      Password?</a>
+                    <div id="myModal2" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                        <!--content class="btn btn-info btn-lg"-->
+                        <div class="modal-content">
+                          <div>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="header">
+                              <h2>Find Your Account</h2>
+                            </div>
+                            <hr>
+                            <p>Please enter your email address or phone number to send a code for you.</p>
+                            <input class="form-control" type="text" placeholder="email address or phone number">
+                            <hr>
+                            <button type="button" class="btn btn-success float-right">Send</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-2">
+                </div>
+                <div class="col-sm-offset-2 col-sm-9">
+                  <%= f.submit "Log in", class: 'btn btn-success btn-lg' %>
+                </div>
+              </div>
+
+            <% end %>
+
+            <div class="col-xs-4 col-xs-offset-4">
+
+              [ <%= link_to "Cancel request and go for signing up first", signup_path %> ]
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

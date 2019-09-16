@@ -1,0 +1,56 @@
+<!--user posts-->
+<% obj.each do |post| %>
+  <div class="jumbotron">
+    <div class="post">
+      <div class="chip">
+        <% if post.user.profile_photo.attached? %>
+          <%= image_tag(post.user.profile_photo, :alt => "Person", width: "96", height: "96") %>
+        <% else %>
+          <%= image_tag("img_avatar.png", class: "img-responsive", width: "160", height: "160") %>
+        <% end %>
+
+        <%= link_to post.user.username, user_path(post.user) %>
+      </div>
+
+      <!--drop down list-->
+      <div class=" float-right">
+        <div class="btn-group">
+          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-option-horizontal"></span>
+          </button>
+          <% if logged_in? && (current_user == post.user || current_user.admin?) %>
+
+            <div class="dropdown-menu">
+              <%= link_to "Edit", edit_post_path(post), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Delete", post_path(post), method: :delete,
+                          data: {confirm: "Are you sure you want to delete the post?"},
+                          class: "dropdown-item" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <!--end of the drop down list-->
+      <hr>
+      <div class="post-recipe-body">
+        <%= truncate(post.description, length: 100) %>
+      </div>
+      <!--post image-->
+      <% if post.description_image.attached? %>
+        <%= image_tag(post.description_image, class: "img-responsive", width: "200", height: "200") %>
+      <% end %>
+
+      <div class="move">
+        <button class="btn btn-success">Like <span class="badge LCS"><%= post.no_of_likes %></span></button>
+        <button class="btn btn-success">Comment <span class="badge LCS"><%= post.no_of_comments %></span></button>
+        <button class="btn btn-success">Save <span class="badge LCS"><%= post.no_of_saved %></span></button>
+      </div>
+      <hr>
+      <div class="post-recipe-meta-details">
+        <small>Created by: <%= post.user.username if post.user %>,
+          <%= time_ago_in_words(post.created_at) %> ago,
+          last updated: <%= time_ago_in_words(post.updated_at) %> ago</small>
+      </div>
+    </div>
+  </div>
+<% end %>

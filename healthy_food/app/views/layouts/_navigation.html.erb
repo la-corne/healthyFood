@@ -6,61 +6,91 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Home", home_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Profile", profile_path, class: "nav-link" %>
-      </li>
+  <% if logged_in? %>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <%= link_to "Profile", user_path(current_user), class: "nav-link" %>
+        </li>
+        <% if current_user.is_specialist? %>
+          <li class="nav-item ">
+            <%= link_to "Diseases", diseases_path, class: "nav-link" %>
+          </li>
+        <% end %>
+        <li class="nav-item ">
+          <%= link_to "Posts", posts_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item ">
+          <%= link_to "Recipes", recipes_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to ' New Post', new_post_path %>
+            <div class="dropdown-divider"></div>
+            <%= link_to ' New Recipe', new_recipe_path %>
 
-    </ul>
-    <form class="form-inline  mr-auto">
-      <div class="input-group ">
-        <input class="form-control" type="search" placeholder="Search.." aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search "></i>
-          </button>
+            <% if current_user.is_specialist? %>
+              <div class="dropdown-divider"></div>
+              <%= link_to 'New Disease', new_disease_path %>
+            <% end %>
+          </div>
+        </li>
+
+      </ul>
+      <form class="form-inline  mr-auto">
+        <div class="input-group ">
+          <input class="form-control" type="search" placeholder="Search.." aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search "></i>
+            </button>
+          </div>
         </div>
-      </div>
-    </form>
-    <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <%= link_to "Logout", root_path, class: "nav-link fa fa-sign-out" %>
-      </li>
-    </ul>
+      </form>
+      <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "Log out", logout_path, method: :delete, class: "nav-link fa fa-sign-out" %>
+        </li>
+      </ul>
+    </div>
+    </nav>
+
+    <!--side bar-->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <br><br><br>
+      <%= link_to "Profile", user_path(current_user) %><br>
+      <%= link_to "Settings", edit_user_path(current_user) %><br>
+      <%= link_to "Saved", saved_path %><br>
+      <%= link_to "Contact us", contact_us_path %><br>
+      <%= link_to 'Delete account', current_user, method: :delete, data: {confirm: 'Are you sure you want to delete your account?'} %>
+    </div>
+
+  <% else %>
+
+    <li><%= link_to 'Log in', login_path, class: "" %></li>
+    <li><%= link_to 'Sign up', signup_path, class: "" %></li>
+
+  <% end %>
+
+  <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+  <div id="main">
+
   </div>
-</nav>
 
-<!--side bar-->
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <%= link_to "Home", home_path %>
-  <%= link_to "Profile", profile_path %>
-  <%= link_to "Services", service_path %>
-  <%= link_to "Saved", saved_path %>
-  <%= link_to "Contact us", contact_us_path %>
+  <script>
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+          document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      }
 
-</div>
-
-
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="main">
-
-</div>
-
-<script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-        document.body.style.backgroundColor = "white";
-    }
-</script>
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+          document.body.style.backgroundColor = "white";
+      }
+  </script>

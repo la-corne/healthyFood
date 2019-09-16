@@ -1,0 +1,27 @@
+<body class="background">
+
+<div class="container-fluid ">
+  <p id="notice"><%= notice %></p>
+
+  <table class="table ">
+
+    <thead>
+    <tr class="table-active">
+      <th >Disease name</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @diseases.each do |disease| %>
+      <tr class="table-active" >
+        <td><%= disease.name %></td>
+        <td ><%= link_to 'Show', disease ,class:"text-success"%></td>
+        <td ><%= link_to 'Edit', edit_disease_path(disease), class:"text-warning" %></td>
+        <td ><%= link_to 'Destroy', disease, class:"text-danger", method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+</body>

@@ -1,6 +1,263 @@
-<h1>Editing User</h1>
+<body class="background">
 
-<%= render 'form', user: @user %>
+<div class="container-fluid ">
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+  <h1>Settings</h1>
+  <br>
+  <hr>
+
+  <%= form_with(model: @user, local: true) do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h4>Profile image</h4>
+        <a href="#demo11" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo11" class="collapse">
+          <%= form.file_field :profile_photo %>
+          <br><br>
+          <a href="#demo11" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h4>name</h4>
+        <a href="#demo3" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo3" class="collapse">
+          <label for="ex2">First:</label>
+          <%= form.text_field :first_name, placeholder: "First name", class: "form-control", id: "ex2" %>
+          <label for="ex2">Last:</label>
+          <%= form.text_field :last_name, placeholder: "Last name", class: "form-control", id: "ex2" %>
+          <br>
+          <a href="#demo3" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save changes</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h4>Mobile number</h4>
+        <a href="#demo4" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo4" class="collapse">
+          <label for="ex2">Mobile number:</label>
+          <%= form.telephone_field :mobile_number, placeholder: "Mobile number", class: "form-control", id: "ex2" %>
+          <p>Note: You should enter a valid phone number. </p>
+          <br>
+          <a href="#demo4" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save changes</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h4>username</h4>
+        <a href="#demo1" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo1" class="collapse">
+          <p>Your public username is the same as your Timeline address:</p>
+          <label for="ex2">Username:</label>
+          <%= form.text_field :username, placeholder: "Username", class: "form-control", id: "ex2" %>
+          <p>Note: Your username should include your authentic name. </p>
+          <br>
+          <a href="#demo1" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save changes</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h4>password</h4>
+        <a href="#demo2" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo2" class="collapse">
+          <label for="pwd">New:</label>
+          <%= form.password_field :password, placeholder: "Password", class: "form-control", id: "pwd" %>
+          <br>
+          <a href="#demo2" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h4>Email</h4>
+        <a href="#demo5" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo5" class="collapse">
+          <label for="ex2">Email:</label>
+          <%= form.email_field :email, placeholder: "Email address", class: "form-control", id: "ex2" %>
+          <p>Note: You should include a valid email address. </p>
+          <br>
+          <a href="#demo5" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save changes</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h4>Weight</h4>
+        <a href="#demo6" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo6" class="collapse">
+          <label for="ex2">Weight:</label>
+          <%= form.number_field :weight, placeholder: "Your weight", class: "form-control", id: "ex2" %>
+
+          <p>Note: Enter your current weight so we will be able to offer the best suitable meals for you. </p>
+          <br>
+          <a href="#demo6" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save changes</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h4>Height</h4>
+        <a href="#demo7" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo7" class="collapse">
+          <label for="ex2">Height:</label>
+          <%= form.number_field :height, placeholder: "Your height", class: "form-control", id: "ex2" %>
+          <p>Note: Enter your current height so we will be able to offer the best suitable meals for you. </p>
+          <br>
+          <a href="#demo7" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save changes</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h4>Diseases</h4>
+        <a href="#demo8" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo8" class="collapse">
+          <label for="ex2">Diseases:</label>
+          <%= form.collection_check_boxes :disease_ids, Disease.all, :id, :name do |cb| %>
+            <% cb.label(class: "checkbox-inline input_checkbox ") { cb.check_box(class: "checkbox") + cb.text } %>
+          <% end %>
+          <p>Note: Enter your current diseases so we will be able to offer the best suitable meals for you. </p>
+          <br>
+          <a href="#demo8" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save changes</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h4>Birthday</h4>
+        <a href="#demo9" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo9" class="collapse">
+          <label for="ex2">Birthday:</label>
+          <%= form.date_field :birthdate %>
+          <p>Note: Enter your correct birth date so we will be able to offer the best suitable meals for you. </p>
+          <br>
+          <a href="#demo9" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Save changes</button>
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+
+    <div class="row">
+      <div class="col-sm-5">
+        <h4>Gender</h4>
+        <a href="#demo10" data-toggle="collapse">
+          <button type="button" class="btn btn-link">Edit</button>
+        </a>
+        <div id="demo10" class="collapse">
+          <label for="ex2">Gender:</label>
+
+          <div class="control-group">
+            <div class="controls">
+              <%= form.select(:gender,
+                              options_for_select([['Female', 'Female'], ['Male', 'Male']])) %>
+            </div>
+          </div>
+          <br>
+          <a href="#demo10" data-toggle="collapse">
+            <button type="button" class="btn btn-info">Cancel</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <br>
+    <br>
+    <div class="actions">
+      <%= form.submit "Save changes", class: "btn btn-success " %>
+    </div>
+  <% end %>
+</div>
+
+</body>

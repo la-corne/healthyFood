@@ -47,15 +47,19 @@
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 /*end of side nav css*/
 
 /*for welcome page*/
 .welcome_jumbotron {
-  background-image:url("cover.jpg");
+  background-image: url("cover.jpg");
 
   background-size: cover;
 
@@ -63,11 +67,10 @@
 }
 
 
-
 /*end of welcome page*/
 
 /*for saved page*/
-.meal_pic{
+.meal_pic {
   background-image: url("received_1543170659051062.jpeg");
 }
 
@@ -80,6 +83,64 @@
   background-repeat: no-repeat;
 }
 
-.LCS{
+.LCS {
   background-color: #2E2F30;
 }
+
+
+.post-recipe-meta-details {
+
+  border-top: 1px solid #eaeaea;
+
+  margin-top: 15px;
+
+  text-align: right;
+
+}
+
+.post-recipe-actions {
+
+  border-top: 1px solid #eaeaea;
+
+  padding-top: 5px;
+
+}
+
+.description {
+
+  margin-top: 0;
+
+}
+
+.post-recipe-title {
+
+  font-weight: bold;
+
+  font-size: 1.5em;
+
+}
+
+.post-recipe-body {
+
+  border-top: 1px solid #eaeaea;
+
+  padding-top: 15px;
+
+  padding-bottom: 15px;
+
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.badge {
+  background-color: #CEF6F5;
+  letter-spacing: -1px;
+}
+
+.input_checkbox input {
+  width: auto !important;
+}
+

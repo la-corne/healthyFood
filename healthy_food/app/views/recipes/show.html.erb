@@ -9,11 +9,20 @@
   <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
-
+<!--recipe image-->
+<% if @recipe.image.attached? %>
+  <%= image_tag(@recipe.image, class: "img-responsive", width: "200", height: "200") %>
+<% end %>
 <p>
   <strong>Desiases:</strong>
   <%= @recipe.desiases %>
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<p>
+  <strong>User:</strong>
+  <%= @recipe.user.username %>
+</p>
+<% if logged_in? && (current_user == @recipe.user || current_user.admin?) %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<% end %>
 <%= link_to 'Back', recipes_path %>

@@ -1,39 +1,15 @@
 class WelcomeController < ApplicationController
-  before_action :flag_navigation_bar, :only => [:contact_us, :home, :profile, :saved, :service]
-
-
-  def login
-
-  end
-
-  def signup
-
-  end
-
-  def contact_us
-  end
-
 
   def home
+    # if the user is logged in he isn't allowed to go to the welcome page
+    redirect_to posts_path if logged_in?
+
   end
 
-
-  def profile
-  end
+  def contact_us; end
 
 
-  def saved
-  end
+ private
 
-
-  def service
-  end
-
-
-  private
-
-  def flag_navigation_bar
-    @navigation_bar = true
-  end
 
 end

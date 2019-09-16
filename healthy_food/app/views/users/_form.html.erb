@@ -1,82 +1,95 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="container-fluid ">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-7">
+        <div class="jumbotron">
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <%= form_with(model: user, local: true) do |form| %>
+            <% if user.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+                <ul>
+                  <% user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="field">
+              <%= form.text_field :first_name, placeholder: "First name", class: "form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.text_field :last_name, placeholder: "Last name", class: "form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.telephone_field :mobile_number, placeholder: "Mobile number", class: "form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.text_field :username, placeholder: "Username", class: "form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.password_field :password, placeholder: "Password", class: "form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.email_field :email, placeholder: "Email address", class: "form-control" %>
+            </div>
+
+
+            <div class="field">
+              <%= form.number_field :weight, placeholder: "Your weight", class: "form-control" %>
+            </div>
+
+            <div class="field">
+              <%= form.number_field :height, placeholder: "Your height", class: "form-control" %>
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-offset-2 col-sm-8 ">
+                  <b>Diseases: </b><br>
+                  <%= form.collection_check_boxes :disease_ids, Disease.all, :id, :name do |cb| %>
+                    <% cb.label(class: "checkbox-inline input_checkbox ") { cb.check_box(class: "checkbox") + cb.text } %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="field">
+              <b>Brithday:</b><br>
+              <%= form.date_field :birthdate %>
+            </div>
+
+            <div class="control-group">
+              <b class="control-label">Sign as:</b><br>
+              <%= form.radio_button :is_specialist, 'true' %>Specialist
+              <%= form.radio_button :is_specialist, 'false' %>Client
+            </div>
+            <br>
+            <div class="control-group">
+              <b class="control-label">Gender:</b><br>
+              <div class="controls">
+                <%= form.select(:gender,
+                                options_for_select([['Female', 'Female'], ['Male', 'Male']])) %>
+              </div>
+            </div>
+            <br>
+            <div class="actions">
+              <%= form.submit "Sign up", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
   </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mobile_number %>
-    <%= form.text_field :mobile_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :brithdate %>
-    <%= form.text_field :brithdate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_specialist %>
-    <%= form.text_field :is_specialist %>
-  </div>
-
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.text_field :weight %>
-  </div>
-
-  <div class="field">
-    <%= form.label :height %>
-    <%= form.text_field :height %>
-  </div>
-
-  <div class="field">
-    <%= form.label :diseases %>
-    <%= form.text_area :diseases %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-  </div>
-
-  <div class="field">
-    <%= form.label :recipe_id %>
-    <%= form.text_field :recipe_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
