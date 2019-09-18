@@ -34,6 +34,29 @@ class UsersController < ApplicationController
     @saved_recipes = current_user.savedrecipes
   end
 
+  def add_post_to_saves
+    @post = User.find(params[:savedpost])
+    current_user.saved_posts.build(savedpost_id: @post.id)
+    if current_user.save
+      flash[:notice] = 'Post was successfully added'
+    else
+      flash[:danger] = 'There was something wrong with the post saving'
+    end
+    # redirect to the same page
+    redirect_back(fallback_location:"/")
+  end
+
+  def add_recipe_to_saves
+    @recipe = User.find(params[:savedrecipe])
+    current_user.saved_recipes.build(savedrecipe_id: @recipe.id)
+    if current_user.save
+      flash[:notice] = 'Recipe was successfully added'
+    else
+      flash[:danger] = 'There was something wrong with the recipe saving'
+    end
+    # redirect to the same page
+    redirect_back(fallback_location:"/")
+  end
 
   # GET /users/1/edit
   # edit will be handled by update function

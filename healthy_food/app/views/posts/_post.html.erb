@@ -48,7 +48,13 @@
       <div class="move">
         <button class="btn btn-success">Like <span class="badge LCS"><%= post.no_of_likes %></span></button>
         <button class="btn btn-success">Comment <span class="badge LCS"><%= post.no_of_comments %></span></button>
-        <button class="btn btn-success">Save <span class="badge LCS"><%= post.no_of_saved %></span></button>
+
+        <% if current_user.post_not_saved?(post.id) %>
+          <%= link_to "Save", save_post_path(user: current_user, savedpost: post), class: "btn btn-success", method: :post %>
+        <% else %>
+          <button type="button" class="btn btn-success" disabled>Saved</button>
+        <% end %>
+
       </div>
       <hr>
       <div class="post-recipe-meta-details">

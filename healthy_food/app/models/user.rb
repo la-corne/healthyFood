@@ -38,4 +38,15 @@ class User < ApplicationRecord
   has_secure_password
   # validates :password, presence: true, length: {minimum: 6, maximum: 200}
 
+
+  def post_not_saved?(post_id)
+    # if count is < 1 means that the count is zero so it isn't saved
+    saved_posts.where(savedpost_id: post_id).count < 1
+  end
+
+  def recipe_not_saved?(recipe_id)
+    # if count is < 1 means that the count is zero so it isn't saved
+    saved_recipes.where(savedrecipe_id: recipe_id).count < 1
+  end
+
 end

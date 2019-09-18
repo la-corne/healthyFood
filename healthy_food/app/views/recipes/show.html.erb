@@ -61,7 +61,11 @@
           </div>
         </div>
         <div class="move">
-          <button class="btn btn-success">Save</button>
+          <% if current_user.recipe_not_saved?(@recipe.id) %>
+            <%= link_to "Save", save_recipe_path(user: current_user, savedrecipe: @recipe), class: "btn btn-success", method: :post %>
+          <% else %>
+            <button type="button" class="btn btn-success" disabled>Saved</button>
+          <% end %>
         </div>
         <hr>
         <div class="post-recipe-meta-details">

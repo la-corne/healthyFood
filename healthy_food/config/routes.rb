@@ -16,8 +16,12 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'saved', to: 'users#my_saved'
+  post 'save_post', to: 'users#add_post_to_saves'
+  post 'save_recipe', to: 'users#add_recipe_to_saves'
+
   get 'contact_us', to: 'welcome#contact_us'
 
-  get 'search', to: 'application#search'
+  get 'search', to: 'searches#search'
+
 
 end

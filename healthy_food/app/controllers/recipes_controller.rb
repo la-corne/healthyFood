@@ -63,7 +63,10 @@ class RecipesController < ApplicationController
     end
   end
 
-
+  # def search
+  #   params[:search_param].strip!
+  #   @recipes = Recipe.where('name like ?', "%#{params[:search_param]}%")
+  # end
 
 
   private

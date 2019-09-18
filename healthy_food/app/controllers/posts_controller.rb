@@ -63,6 +63,10 @@ class PostsController < ApplicationController
     end
   end
 
+  # def search
+  #   params[:search_param].strip!
+  #   @posts = Post.where('name like ?', "%#{params[:search_param]}%")
+  # end
 
   private
 
