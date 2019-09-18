@@ -32,6 +32,11 @@
       </div>
       <!--end of the drop down list-->
       <hr>
+      <div class="post-recipe-title">
+        <%= link_to post.name, post_path(post) %>
+      </div>
+      <br>
+
       <div class="post-recipe-body">
         <%= truncate(post.description, length: 100) %>
       </div>

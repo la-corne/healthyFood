@@ -1,28 +1,79 @@
-<p id="notice"><%= notice %></p>
+<body class="background">
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+    <div class="col-sm-6 jumbotron">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
-<!--recipe image-->
-<% if @recipe.image.attached? %>
-  <%= image_tag(@recipe.image, class: "img-responsive", width: "200", height: "200") %>
-<% end %>
-<p>
-  <strong>Desiases:</strong>
-  <%= @recipe.desiases %>
-</p>
+      <div class="post">
+        <div class="chip">
+          <% if @recipe.user.profile_photo.attached? %>
+            <%= image_tag(@recipe.user.profile_photo, :alt => "Person", width: "96", height: "96") %>
+          <% else %>
+            <%= image_tag("img_avatar.png", class: "img-responsive", width: "160", height: "160") %>
+          <% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @recipe.user.username %>
-</p>
-<% if logged_in? && (current_user == @recipe.user || current_user.admin?) %>
-  <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<% end %>
-<%= link_to 'Back', recipes_path %>
+          <%= link_to @recipe.user.username, user_path(@recipe.user) %>
+        </div>
+
+
+        <!--drop down list-->
+        <div class=" float-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-option-horizontal"></span>
+            </button>
+            <% if logged_in? && (current_user == @recipe.user || current_user.admin?) %>
+
+              <div class="dropdown-menu">
+                <%= link_to "Edit", edit_recipe_path(@recipe), class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Delete", recipe_path(@recipe), method: :delete,
+                            data: {confirm: "Are you sure you want to delete the recipe?"},
+                            class: "dropdown-item" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <!--end of the drop down list-->
+        <hr>
+        <div class="post-recipe-title">
+          <%= link_to @recipe.name, recipe_path(@recipe) %>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="post-recipe-body">
+              <%= truncate(@recipe.description, length: 100) %>
+            </div>
+
+            <!--recipe image-->
+            <% if @recipe.image.attached? %>
+              <%= image_tag(@recipe.image, class: "img-responsive", width: "200", height: "200") %>
+            <% end %>
+          </div>
+
+          <div class="col-md-4">
+            <b>Diseases: </b> <%= @recipe.desiases %>
+          </div>
+        </div>
+        <div class="move">
+          <button class="btn btn-success">Save</button>
+        </div>
+        <hr>
+        <div class="post-recipe-meta-details">
+          <small>Created by: <%= @recipe.user.username if @recipe.user %>,
+            <%= time_ago_in_words(@recipe.created_at) %> ago,
+            last updated: <%= time_ago_in_words(@recipe.updated_at) %> ago</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+</body>
+

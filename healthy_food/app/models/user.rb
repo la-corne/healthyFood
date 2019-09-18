@@ -5,7 +5,11 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :recipes, dependent: :destroy
   has_many :user_diseases
-  has_many :diseases , through: :user_diseases
+  has_many :diseases, through: :user_diseases
+  has_many :saved_recipes
+  has_many :savedrecipes, through: :saved_recipes
+  has_many :saved_posts
+  has_many :savedposts, through: :saved_posts
   # database validations
   validates :username, presence: true,
             uniqueness: {case_sensitive: false},

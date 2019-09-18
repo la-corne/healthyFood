@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_194043) do
+ActiveRecord::Schema.define(version: 2019_09_17_170129) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_08_22_194043) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -68,6 +69,24 @@ ActiveRecord::Schema.define(version: 2019_08_22_194043) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "saved_posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "savedpost_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["savedpost_id"], name: "index_saved_posts_on_savedpost_id"
+    t.index ["user_id"], name: "index_saved_posts_on_user_id"
+  end
+
+  create_table "saved_recipes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "savedrecipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["savedrecipe_id"], name: "index_saved_recipes_on_savedrecipe_id"
+    t.index ["user_id"], name: "index_saved_recipes_on_user_id"
   end
 
   create_table "user_diseases", force: :cascade do |t|

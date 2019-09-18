@@ -63,6 +63,7 @@ class PostsController < ApplicationController
     end
   end
 
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -73,7 +74,7 @@ class PostsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
     params.require(:post).permit(:description, :no_of_likes, :no_of_saved,
-                                 :no_of_comments, :user_id, :description_image)
+                                 :no_of_comments, :user_id, :description_image,:name)
   end
 
   def require_same_user

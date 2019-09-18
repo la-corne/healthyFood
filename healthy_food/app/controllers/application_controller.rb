@@ -32,4 +32,17 @@ class ApplicationController < ActionController::Base
 
     end
   end
+
+  def search
+    unless params[:search_param].blank?
+      @posts = ApplicationRecord.search(params[:search_param])
+      @recipes = ApplicationRecord.search(params[:search_param]) if @posts.blank?
+      flash.now[:danger] = 'No results match this search criteria' if @recipes.blank?
+    end
+    respond_to do |format|
+      format.js { render partial: 'layouts/result' }
+    end
+  end
+
+
 end

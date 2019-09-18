@@ -1,0 +1,93 @@
+<body class="background">
+
+<div class="container-fluid ">
+  <div class="row post">
+    <div class="col-sm-6 ">
+
+
+      <% if @saved_recipes.size > 0 %>
+        <% @saved_recipes.each do |recipe| %>
+          <div class="jumbotron">
+
+            <!--to delete the recipe from the saved-->
+            <%= link_to "x", saved_recipe_path(recipe), method: :delete,
+                        data: {confirm: "Are you sure?"}, class: "close" %>
+
+            <!--recipe image-->
+            <% if recipe.image.attached? %>
+              <%= image_tag(recipe.image, class: "img-responsive", width: "200", height: "200") %>
+            <% end %>
+
+            <!--recipe name-->
+            <%= link_to recipe.name, recipe_path(recipe), class: "post-recipe-title" %>
+            <br>
+
+            <br>
+
+            <div class="chip saved-meta-details ">
+              <% if recipe.user.profile_photo.attached? %>
+                <%= image_tag(recipe.user.profile_photo, :alt => "Person", width: "96", height: "96") %>
+              <% else %>
+                <%= image_tag("img_avatar.png", class: "img-responsive", width: "160", height: "160") %>
+              <% end %>
+              <small>Saved from a recipe by
+                : <%= link_to recipe.user.username, user_path(recipe.user) if recipe.user %></small>
+            </div>
+
+          </div>
+        <% end %>
+      <% else %>
+        <div class="row col-lg-12">
+          <p class="lead">
+            You don't have any saved recipes yet, please add some!
+          </p>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="col-sm-6 ">
+
+      <% if @saved_posts.size > 0 %>
+        <% @saved_posts.each do |post| %>
+          <div class="jumbotron">
+            <!--to delete the post from the saved-->
+            <%= link_to "x", saved_post_path(post), method: :delete,
+                        data: {confirm: "Are you sure?"}, class: "close" %>
+
+
+            <!--post image-->
+            <% if post.description_image.attached? %>
+              <%= image_tag(post.description_image, class: "img-responsive", width: "200", height: "200") %>
+            <% end %>
+
+            <!--post name-->
+            <%= link_to post.name, post_path(post), class: "post-recipe-title" %>
+            <br>
+
+            <div class="chip saved-meta-details">
+              <% if post.user.profile_photo.attached? %>
+                <%= image_tag(post.user.profile_photo, :alt => "Person", width: "96", height: "96") %>
+              <% else %>
+                <%= image_tag("img_avatar.png", class: "img-responsive", width: "160", height: "160") %>
+              <% end %>
+              <small>Saved from a recipe by
+                : <%= link_to post.user.username, user_path(post.user) if post.user %></small>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="row col-lg-12">
+          <p class="lead">
+            You don't have any saved posts yet, please add some!
+          </p>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
+</body>
+
+

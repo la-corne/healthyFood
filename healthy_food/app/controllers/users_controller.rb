@@ -28,6 +28,13 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
+  def my_saved
+    @saved_posts = current_user.savedposts
+    @saved_recipes = current_user.savedrecipes
+  end
+
+
   # GET /users/1/edit
   # edit will be handled by update function
   # so when I click the save button in the setting (edit) page the update function is called
