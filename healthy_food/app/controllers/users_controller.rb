@@ -34,6 +34,8 @@ class UsersController < ApplicationController
     @saved_recipes = current_user.savedrecipes
   end
 
+
+
   def add_post_to_saves
     @post = User.find(params[:savedpost])
     current_user.saved_posts.build(savedpost_id: @post.id)

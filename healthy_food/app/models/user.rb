@@ -49,4 +49,5 @@ class User < ApplicationRecord
     saved_recipes.where(savedrecipe_id: recipe_id).count < 1
   end
 
+
 end

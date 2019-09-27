@@ -7,9 +7,6 @@ ruby '2.6.3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails', '~> 5.2.3'
 
-# device gem
-gem 'devise'
-
 # font awsome gem
 gem 'font-awesome-rails'
 
